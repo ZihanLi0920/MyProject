@@ -1,0 +1,13 @@
+package mini.model;
+
+import java.awt.Component;
+import java.io.Serializable;
+
+public interface MiniModel2ViewAdapter extends Serializable {
+	public void appendMsg(String msg,String name);
+	public void addScrollableComponent(Component c, String label);
+	public void addNonScrollableComponent(Component c,String label);
+	public void refresh();
+	public void leave();
+
+}

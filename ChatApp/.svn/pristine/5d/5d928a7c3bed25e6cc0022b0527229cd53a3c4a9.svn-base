@@ -1,0 +1,8 @@
+package mini.controller;
+
+import java.util.UUID;
+
+public interface Mini2MainAdapter {
+	public void leave(UUID id);
+
+}

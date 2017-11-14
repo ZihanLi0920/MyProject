@@ -1,0 +1,136 @@
+package mini.model;
+
+import java.awt.Component;
+import java.awt.Container;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.UUID;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.IChatRoom;
+import common.IReceiver;
+import common.IRemoveReceiverType;
+import main.model.cmds.RemoveReceiverData;
+//import common.IVoidLambdaDP;
+import provided.datapacket.ADataPacket;
+
+public class ChatRoom implements IChatRoom {
+
+	IReceiver related;
+	HashSet<IReceiver> receivers=new HashSet<IReceiver>();
+	UUID id;
+	private String name;
+	transient MiniModel2ViewAdapter model2viewAdpt;
+	public ChatRoom(String _name,MiniModel2ViewAdapter _model2viewAdpt)
+	{
+		model2viewAdpt=_model2viewAdpt;
+		setName(_name);
+		id=UUID.randomUUID();
+	}
+	public void setRelated(IReceiver receiver)
+	{
+		related=receiver;
+	}
+	public IReceiver getRelated()
+	{
+		return related;
+	}
+	
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getName();
+	}
+	
+	
+	@Override
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void appendMsg(String msg,String name)
+	{
+		model2viewAdpt.appendMsg(msg,name);
+	}
+
+	@Override
+	public Collection<IReceiver> getIReceiverStubs() {
+		// TODO Auto-generated method stub
+		return receivers;
+	}
+
+	@Override
+	public boolean addIReceiverStubLocally(IReceiver receiver) {
+		// TODO Auto-generated method stub
+		return receivers.add(receiver);
+	}
+
+	@Override
+	public boolean removeIReceiverStubLocally(IReceiver receiver) {
+		// TODO Auto-generated method stub
+		return receivers.remove(receiver);
+	}
+
+	@Override
+	public <T> void sendPacket(DataPacketChatRoom<T> data) {
+		// TODO Auto-generated method stub
+		for(IReceiver receiver:receivers)
+		{
+			try {
+				receiver.receive(data);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+
+	@Override
+	public UUID getUUID() {
+		// TODO Auto-generated method stub
+		return this.id;
+	}
+
+	
+	public void addScrollableComponent(Component component,String label)
+	{
+		model2viewAdpt.addScrollableComponent(component,label);
+	}
+	public void addNonScrollableComponent(Component component, String label)
+	{
+		model2viewAdpt.addNonScrollableComponent(component,label);
+	}
+	public void refresh()
+	{
+		model2viewAdpt.refresh();
+	}
+	public Collection<String> getMembers()
+	{
+		Collection<String> result=new ArrayList<String>();
+		for(IReceiver r:receivers)
+		{
+			try {
+				result.add(r.getUserStub().getName());
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	public void leave()
+	{
+		sendPacket(new DataPacketChatRoom(IRemoveReceiverType.class,new RemoveReceiverData(related),related) );
+		model2viewAdpt.leave();
+	}
+
+}

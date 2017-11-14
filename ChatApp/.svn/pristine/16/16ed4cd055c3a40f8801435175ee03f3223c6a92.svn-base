@@ -1,0 +1,68 @@
+package main.model.cmds;
+
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.rmi.RemoteException;
+
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.ICmd2ModelAdapter;
+import common.IComponentFactory;
+import common.IReceiver;
+
+public class ImageCommand extends DataPacketAlgoCmd<ImageIcon>{
+
+	ICmd2ModelAdapter cmd2ModelAdpt;
+	@Override
+	public String apply(Class<?> index, DataPacketChatRoom<ImageIcon> host, String... params) {
+		// TODO Auto-generated method stub
+		cmd2ModelAdpt.buildScrollableComponent(new IComponentFactory() {
+
+			@Override
+			public Component makeComponent() {
+				// TODO Auto-generated method stub
+				
+				JPanel panel=new JPanel();
+				//panel.setPreferredSize(new Dimension(200,200));
+				//panel.setSize(new Dimension(300,300));
+				JScrollPane scroll=new JScrollPane(panel);
+				JLabel label=new JLabel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+				try {
+					JLabel label1=new JLabel(host.getSender().getUserStub().getName()+":");
+					JLabel label2=new JLabel();
+					ImageIcon img=host.getData();
+					img.setImage(img.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT));
+					label2.setIcon(img);
+					
+					
+					label.setIcon(img);
+					label.setText(host.getSender().getUserStub().getName()+":");
+					panel.add(label1);
+					panel.add(label2);
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return panel;
+			}}, "Scrolling Comps");
+		return null;
+	}
+
+	@Override
+	public void setCmd2ModelAdpt(ICmd2ModelAdapter cmd2ModelAdpt) {
+		// TODO Auto-generated method stub
+		this.cmd2ModelAdpt=cmd2ModelAdpt;
+		
+	}
+
+	
+
+}

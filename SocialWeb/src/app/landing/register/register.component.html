@@ -1,0 +1,48 @@
+<h2 >register</h2>
+<p>
+  <label >account name:</label>
+  <input id="accName" [(ngModel)]="author.accountName" placeholder="input your name">
+</p>
+<div *ngIf="nameErr" class="errorMsg">{{nameErr}}</div>
+
+<p>
+  <label >display name:</label>
+  <input id="disName" [(ngModel)]="author.displayName" placeholder="input your display name">
+</p>
+
+<p>
+  <label >email adress:</label>
+  <input id="email" [(ngModel)]="author.emailAdress" placeholder="abc@q.com">
+</p>
+<div *ngIf="emailErr" class="errorMsg">{{emailErr}}</div>
+
+<p>
+  <label >phone number:</label>
+  <input id="phone" [(ngModel)]="author.phoneNumber" placeholder="123-123-1234">
+</p>
+<div *ngIf="phoneErr" class="errorMsg">{{phoneErr}}</div>
+
+<p>
+  <label >birth date:</label>
+  <input id="birth" type="date" [(ngModel)]="author.birthDate" >
+</p>
+<div *ngIf="dateErr" class="errorMsg">{{dateErr}}</div>
+
+<p>
+  <label >password:</label>
+  <input  type="password" [(ngModel)]="author.password" id="password1" placeholder="input your password">
+</p>
+<p>
+  <label >confirm password:</label>
+  <input id="cpw" type="password" [(ngModel)]="confirmPw"  placeholder="confirm your password">
+</p>
+<div *ngIf="pwErr" class="errorMsg">{{pwErr}}</div>
+
+<p>
+  <label >zipcode:</label>
+  <input id="zip" [(ngModel)]="author.zipcode" placeholder="77005">
+</p>
+<div *ngIf="zipErr" class="errorMsg">{{zipErr}}</div>
+
+<button id="register" (click)="register()" >register</button>
+<p id="message">{{message}}</p>

@@ -1,0 +1,88 @@
+package main.model;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.UUID;
+
+import common.IChatRoom;
+import common.IUser;
+
+public class User implements IUser {
+	HashSet<IChatRoom> chatRooms=new HashSet<IChatRoom>();
+	ArrayList<IUser> friends=new ArrayList<IUser>();
+	final String BOUND_NAME1;
+	
+	String IP;
+	final int BOUND_PORT;
+	User2ModelAdapter modelAdpt;
+	UUID id;
+	
+	
+	User(String name,int port,User2ModelAdapter _modelAdpt)
+	{
+		modelAdpt=_modelAdpt;
+		BOUND_NAME1=name;
+		BOUND_PORT=port;
+		id=UUID.randomUUID();
+	}
+	
+
+	public void addRoom(IChatRoom room)
+	{
+		chatRooms.add(room);
+	}
+	public void setIP(String _IP)
+	{
+		IP=_IP;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return BOUND_NAME1;
+	}
+
+	public boolean join(IChatRoom room) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean quit(IChatRoom room) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getName() throws RemoteException {
+		// TODO Auto-generated method stub
+		return BOUND_NAME1;
+	}
+
+
+
+
+
+	@Override
+	public Collection<IChatRoom> getChatRooms() throws RemoteException {
+		// TODO Auto-generated method stub
+		return this.chatRooms;
+	}
+
+
+	@Override
+	public UUID getUUID() throws RemoteException {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+
+	@Override
+	public void connect(IUser userStub) throws RemoteException {
+		// TODO Auto-generated method stub
+		friends.add(userStub);
+		modelAdpt.addfriend(userStub);
+		
+	}
+
+}

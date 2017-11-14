@@ -1,0 +1,17 @@
+package main.view;
+
+import java.util.ArrayList;
+
+import main.model.MainModel.ProxyUser;
+import main.model.ProxyChatroom;
+import mini.model.ChatRoom;
+
+public interface MainView2ModelAdapter {
+
+	public void start(String name,int port);
+	public void connectTo(String name,String IP);
+	public void createRoom(String room);
+	public void joinRoom(ProxyChatroom room);
+	public ArrayList<ProxyChatroom> getRemoteRoom(ProxyUser friend);
+	public void quit();
+}

@@ -1,0 +1,12 @@
+package mini.view;
+
+import java.util.Collection;
+
+public interface MiniView2ModelAdapter {
+
+	public void SendMsg(String msg);
+	public void SendImg(String path);
+	public Collection<String> getMembers();
+	public void leave();
+	public void SendFile(byte[][] data);
+}

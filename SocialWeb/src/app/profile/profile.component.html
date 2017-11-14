@@ -1,0 +1,61 @@
+
+<div class="container">
+  <div classs="row" style="margin:0px 0px 60px 0px">
+    <div class="col-md-11 col-md-offset-1" >
+
+      <a id="link" routerLink="/main">back to main page</a>
+
+    </div>
+  </div>
+  <div class="row" style="margin:0px 0px 20px 0px;">
+    <div class="col-md-4 col-md-offset-1">
+      <img src={{tempAuthor.temp.img}} class="img-rounded" width="304" height="236">
+    </div>
+    <div class="col-md-6 col-md-offset-1">
+      <img src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1507509825124&di=6a49a63521c63c1a92390701f5f48052&imgtype=0&src=http%3A%2F%2Fcdn.scratch.mit.edu%2Fstatic%2Fsite%2Fprojects%2Fthumbnails%2F1386%2F7458.png' class="img-rounded" width="600" height="236">
+    </div>
+  </div>
+  <div class="row" style="margin:0px 0px 20px 0px;">
+    <div class="col-md-4 col-md-offset-1">
+      <input type="file" accept="image/*" (change)="changePhoto($event)"/>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1" style="font-size:15px;">
+      <h2>current information</h2>
+      <p>display name: {{tempAuthor.temp.displayName}}</p>
+      <p id="email">email adress: {{tempAuthor.temp.emailAdress}}</p>
+      <p>phone number: {{tempAuthor.temp.phoneNumber}}</p>
+      <p id="zipcode">zipcode: {{tempAuthor.temp.zipcode}}</p>
+      <p>birth date: {{tempAuthor.temp.birthDate}}</p>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+      <h2>update information</h2>
+      <p>
+        <label >display name:</label>
+        <input [(ngModel)]="validate.author.displayName">
+      </p>
+      <div *ngIf="validate.nameErr" class="errorMsg">{{validate.nameErr}}</div>
+      <p>
+        <label >email adress:</label>
+        <input id="editEmail" [(ngModel)]="validate.author.emailAdress" >
+      </p>
+      <div *ngIf="validate.emailErr" class="errorMsg">{{validate.emailErr}}</div>
+      <p>
+        <label >phone number:</label>
+        <input [(ngModel)]="validate.author.phoneNumber">
+      </p>
+      <div *ngIf="validate.phoneErr" class="errorMsg">{{validate.phoneErr}}</div>
+      <p>
+        <label >zipcode:</label>
+        <input id="editZipcode" [(ngModel)]="validate.author.zipcode">
+      </p>
+      <div *ngIf="validate.zipErr" class="errorMsg">{{validate.zipErr}}</div>
+      <p>
+        <label >password:</label>
+        <input id="editPassword" type="password" [(ngModel)]="validate.author.password" >
+      </p>
+      <div  id="pwErr" *ngIf="validate.pwErr" class="errorMsg">{{validate.pwErr}}</div>
+      <button id="updateInfo" type="button" (click)="update()" class="btn btn-info">update</button>
+    </div>

@@ -1,0 +1,23 @@
+package main.model.cmds;
+
+import common.DataPacketChatRoom;
+import common.IReceiver;
+import common.IRemoveReceiverType;
+
+public class RemoveReceiverData implements IRemoveReceiverType{
+
+	IReceiver stub;
+	public RemoveReceiverData(IReceiver stub)
+	{
+		this.stub=stub;
+	}
+
+	@Override
+	public IReceiver getReceiverStub() {
+		// TODO Auto-generated method stub
+		return stub;
+	}
+
+	
+
+}

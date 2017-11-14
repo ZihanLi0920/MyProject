@@ -1,0 +1,75 @@
+
+<h2 >Main Page</h2>
+<div class="container" style="border-style: solid;border-width: 1px;margin:60px,0px,0px,0px;">
+  <div class="row">
+    <div class="col-md-3" id="col">
+      <p><a routerLink="/landing" (click)="logOut()">Log Out </a> | <a id="toProfile" routerLink="/profile">Profile</a></p>
+      <img width="70%" height="30%" src={{tempAuthor.temp.img}}>
+      <p class="authorName" id="authorName">{{tempAuthor.temp.displayName}}</p>
+      <p id="status">{{tempAuthor.temp.status}}</p>
+      <input id="newStatus" type="text" [(ngModel)]="newStatus" placeholder="new status">
+      <button  id="updateStatus" type="button" (click)="updateStatus()">update</button>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div id="col" class="col-md-6">
+          <textarea  id="myArticle" [(ngModel)]="article" rows="7" cols="40" placeholder="your post here"></textarea>
+          <input id="articleImg" type="file" accept="image/*" (change)="handelImg($event)"/>
+          <button type="button" (click)="clearPost()" class="btn btn-default">cancel</button>
+          <button id="post" type="button" class="btn btn-default" (click)="postArticle()">post</button>
+        </div>
+        <div id="colImg" class="col-md-5">
+          <img width="400" height="200" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1733883305,1687345677&fm=27&gp=0.jpg">
+        </div>
+      </div>
+      <div class="row" style=" margin:20px">
+        <div class="col-md-12">
+              <div class="input-group">
+                  <input  type="text" id="searchKeyword" class="form-control" [(ngModel)]="filter" placeholder="what post do you want to see?">
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" (click)="clearSearch()">cancel</button>
+                  </span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" id="col">
+      <div  id="scrollArea" style="border-style: solid;border-width: 1px;margin:5px;">
+        <div *ngFor="let follow of temp_follow;let i=index; " style="border-style: solid;border-width:1px;">
+          <img src={{follow.image}} width="200" height="100">
+          <p id="followName" class="followNames">{{follow.displayName}}</p>
+          <p>{{follow.status}}</p>
+          <button id="unfollow{{follow.displayName}}"(click)="unfollow(i)">unfollow</button>
+        </div>
+      </div>
+      <input id="newFollow" type="text" [(ngModel)]="followName"><button id="addFollow" (click)="addFollow()">add</button>
+      <div *ngIf="Err" class="errorMsg">{{Err}}</div>
+    </div>
+    <div id="scrollArea" class="col-md-8">
+      <div  *ngFor="let article of articles;let i=index; " style="border-style: solid;border-width:1px;">
+        <div id="articles"*ngIf="isDisplayed(article)">
+
+            <img *ngIf="article.img!=null" src={{article.img}} width="200" height="100">
+            <p id="followName">author:{{article.author}}</p>
+            <p >{{article.date}}</p>
+            <p id="articleText{{article._id}}" class="articleText">{{article.text}}</p>
+            <div id="comment{{article._id}}" style="display:none">
+              <p>comments:</p>
+              <div *ngFor="let com of article.comments">
+                <div>{{com.text}}  <button *ngIf="tempAuthor.temp.displayName==com.author" (click)="editCom(com)">edit</button></div>
+
+              </div>
+            </div>
+            <button id="edit_{{article._id}}" *ngIf="tempAuthor.temp.displayName==article.author" (click)="edit(article)">edit</button><button (click)="addComment(article)">comment</button><button id="button{{article._id}}"(click)="showComment(article)">show comment</button>
+            <div id="edit{{article._id}}" style="display:none">
+              <textarea  id="editArticle{{article._id}}" rows="7" cols="40" placeholder="your post here" [(ngModel)]="editAtc"></textarea>
+              <button id="saveArticle{{article._id}}" (click)="save(article)">save</button>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

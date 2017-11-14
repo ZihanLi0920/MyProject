@@ -1,0 +1,17 @@
+package main.model.cmds;
+
+import common.IRequestCmdType;
+
+public class RequestCmdType implements IRequestCmdType{
+	Class<?> id;
+	public RequestCmdType(Class<?> id)
+	{
+		this.id=id;
+	}
+	@Override
+	public Class<?> getCmdId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+}

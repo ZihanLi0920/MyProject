@@ -1,0 +1,14 @@
+package main.model;
+
+import common.IUser;
+import main.model.MainModel.ProxyUser;
+import mini.model.ChatRoom;
+
+public interface MainModel2ViewAdapter {
+
+	public void setIP(String IP);
+	public void addFriend(ProxyUser friend);
+	//public void createRoom(String room);
+	public void appendInfo(String info);
+	
+}

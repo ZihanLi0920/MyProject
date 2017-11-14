@@ -1,0 +1,8 @@
+package main.model;
+
+import common.IUser;
+
+public interface User2ModelAdapter {
+	public void addfriend(IUser friend);
+
+}

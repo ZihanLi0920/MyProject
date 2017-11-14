@@ -1,0 +1,16 @@
+package main.model.cmds;
+
+import javax.swing.ImageIcon;
+
+import common.DataPacketChatRoom;
+import common.IReceiver;
+
+public class ImageData extends DataPacketChatRoom<ImageIcon> {
+
+	public ImageData(Class<ImageIcon> c, ImageIcon data, IReceiver sender) {
+		super(c, data, sender);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

@@ -1,0 +1,74 @@
+package main.model;
+
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.UUID;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.IChatRoom;
+import common.IReceiver;
+//import common.IVoidLambdaDP;
+import provided.datapacket.ADataPacket;
+
+public class ProxyChatroom implements IChatRoom {
+	IChatRoom stub;
+	
+	public ProxyChatroom(IChatRoom _stub)
+	{
+		stub=_stub;
+	}
+
+
+	
+	@Override
+	public String toString()
+	{
+		return this.getName();
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return stub.getName();
+	}
+
+	@Override
+	public Collection<IReceiver> getIReceiverStubs() {
+		// TODO Auto-generated method stub
+		return stub.getIReceiverStubs();
+	}
+
+	@Override
+	public boolean addIReceiverStubLocally(IReceiver receiver) {
+		// TODO Auto-generated method stub
+		return stub.addIReceiverStubLocally(receiver);
+	}
+
+	@Override
+	public boolean removeIReceiverStubLocally(IReceiver receiver) {
+		// TODO Auto-generated method stub
+		return stub.removeIReceiverStubLocally(receiver);
+	}
+
+	@Override
+	public <T> void sendPacket(DataPacketChatRoom<T> data) {
+		// TODO Auto-generated method stub
+		stub.sendPacket(data);
+		
+	}
+
+	@Override
+	public UUID getUUID() {
+		// TODO Auto-generated method stub
+		return stub.getUUID();
+	}
+
+	
+
+
+
+	
+
+}

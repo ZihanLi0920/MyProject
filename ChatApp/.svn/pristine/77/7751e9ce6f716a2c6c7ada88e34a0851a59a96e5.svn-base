@@ -1,0 +1,10 @@
+package mini.model;
+
+public class MiniModel {
+	ChatRoom room;
+	MiniModel(ChatRoom _room)
+	{
+		room=_room;
+	}
+
+}

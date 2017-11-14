@@ -1,0 +1,28 @@
+package main.model.cmds;
+
+import common.DataPacketAlgoCmd;
+import common.DataPacketChatRoom;
+import common.IAddReceiverType;
+import common.ICmd2ModelAdapter;
+import common.IReceiver;
+import provided.datapacket.ADataPacket;
+import provided.extvisitor.IExtVisitorHost;
+
+public class AddReceiverType implements IAddReceiverType {
+
+	IReceiver receiver;
+	public AddReceiverType(IReceiver receiver)
+	{
+		this.receiver=receiver;
+	}
+	@Override
+	public IReceiver getReceiverStub() {
+		// TODO Auto-generated method stub
+		return receiver;
+	}
+
+
+
+	
+
+}

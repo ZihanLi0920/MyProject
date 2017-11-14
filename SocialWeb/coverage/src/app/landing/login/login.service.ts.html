@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/landing/login/login.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/landing/login</a> login.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.79% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>25/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">36.36% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.97% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import {Http} from '@angular/http';
+import {  Author} from '../../author/author';
+import 'rxjs/add/operator/toPromise';
+import { url,resource} from '../../actions.service';
+@Injectable()
+export class LoginService {
+  users:Author[];
+  constructor(public http:Http<span class="branch-1 cbranch-no" title="branch not covered" >) {</span>
+    this.http.get('../../../assets/users.json')
+                 .toPromise()
+                 .then(response =&gt; this.users=response.json().users );
+               }
+<span class="fstat-no" title="function not covered" >  validate(</span>name:string,password:string):boolean|string{
+<span class="cstat-no" title="statement not covered" >    if(name.length==0)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "name cannot be null";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(this.users.find(<span class="fstat-no" title="function not covered" >user=&gt;<span class="cstat-no" title="statement not covered" >user.accountName===name)</span>==undefined)</span></span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "this is an illegal user";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if((this.users.find(<span class="fstat-no" title="function not covered" >user=&gt;<span class="cstat-no" title="statement not covered" >user.accountName===name)</span>).password!=password)</span></span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input the right password";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+<span class="fstat-no" title="function not covered" >  getUser(</span>name:string):Author{
+<span class="cstat-no" title="statement not covered" >    return this.users.find(<span class="fstat-no" title="function not covered" >user=&gt;<span class="cstat-no" title="statement not covered" >user.accountName===name)</span>;</span></span>
+  }
+<span class="fstat-no" title="function not covered" >  getUserByDisplayName(</span>name:string):Author{
+<span class="cstat-no" title="statement not covered" >    return this.users.find(<span class="fstat-no" title="function not covered" >user=&gt;<span class="cstat-no" title="statement not covered" >user.displayName===name)</span>;</span></span>
+  }
+}
+export const login=(username,password)=&gt;
+{
+  let message=document.querySelector("#message");
+  return resource('POST','login',{username,password})
+        .then(r=&gt;{
+          if(r.status=="success")
+          {message.innerHTML="you have login as "+username;}
+          else
+          {message.innerHTML="it's an invalid user"}
+        })
+}
+export const logout=()=&gt;
+{
+  let message=document.querySelector("#message");
+  return resource('POST','logout',undefined)
+        .then(r=&gt;{message.innerHTML="you have logged out";});
+        //.catch(err=&gt;message.innerHTML="it's an invalid user");
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 28 2017 21:13:36 GMT-0500 (CDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

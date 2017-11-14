@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/landing/register/register.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/landing/register</a> register.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+&nbsp;
+@Injectable()
+export class RegisterService {
+<span class="cstat-no" title="statement not covered" >  nameExp:RegExp=new RegExp(/^[a-zA-Z][0-9a-zA-Z]*$/);</span>
+<span class="cstat-no" title="statement not covered" >  emailExp:RegExp=new RegExp(/^[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+$/);</span>
+  //dateExp:RegExp=new RegExp(/^\d\d-\d\d-\d\d\d\d$/);
+<span class="cstat-no" title="statement not covered" >  phoneExp:RegExp=new RegExp(/^\d\d\d-\d\d\d-\d\d\d\d$/);</span>
+<span class="cstat-no" title="statement not covered" >  zipExp:RegExp=new RegExp(/^\d\d\d\d\d$/);</span>
+  now:Date;
+<span class="fstat-no" title="function not covered" >  constructor() { }</span>
+<span class="fstat-no" title="function not covered" >  validateName(</span>name:string):boolean|string{
+<span class="cstat-no" title="statement not covered" >    if(name.length==0)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input account name";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(!this.nameExp.test(name))</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input valid name";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+<span class="fstat-no" title="function not covered" >  validateEmail(</span>email:string):boolean|string{
+<span class="cstat-no" title="statement not covered" >    if(email.length==0)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input your email";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(!this.emailExp.test(email))</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input valid email "</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+<span class="fstat-no" title="function not covered" >  validatePhone(</span>phone:string):boolean|string{
+<span class="cstat-no" title="statement not covered" >    if(phone.length==0)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input your phone";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(!this.phoneExp.test(phone))</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input valid phone "</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+<span class="fstat-no" title="function not covered" >  validateZip(</span>zipcode:string):boolean|string{
+<span class="cstat-no" title="statement not covered" >    if(zipcode.length==0)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input your zipcode";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(!this.zipExp.test(zipcode))</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input valid zipcode "</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+<span class="fstat-no" title="function not covered" >  validateDate(</span>dates:string):boolean|string{
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.now=new Date();</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if(this.now.getFullYear()-parseInt(dates.split('-')[0])&lt;18)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "Only individuals 18 yueas of age or older can register"</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(this.now.getFullYear()-parseInt(dates.split('-')[0])==18)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      if(this.now.getMonth()+1-parseInt(dates.split('-')[1])&lt;0)</span>
+      {
+<span class="cstat-no" title="statement not covered" >        return "Only individuals 18 yueas of age or older can register"</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if(this.now.getMonth()+1==parseInt(dates.split('-')[1]))</span>
+      {
+<span class="cstat-no" title="statement not covered" >        if(this.now.getDate()&lt;parseInt(dates.split('-')[2]))</span>
+        {
+<span class="cstat-no" title="statement not covered" >          return "Only individuals 18 yueas of age or older can register"</span>
+        }
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+<span class="fstat-no" title="function not covered" >  validatePassword(</span>password:string,confirmPw:string):boolean|string{
+<span class="cstat-no" title="statement not covered" >    if(password.length==0)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return "please input your password";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if(password!=confirmPw)</span>
+    {
+<span class="cstat-no" title="statement not covered" >      return 'confirm password must be the same as password';</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 28 2017 21:13:36 GMT-0500 (CDT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

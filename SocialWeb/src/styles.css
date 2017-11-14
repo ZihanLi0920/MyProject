@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+.login{
+  width: 50%;
+  height: 30%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#landing{
+  border-style: solid;
+  TEXT-ALIGN:center;
+  border-width: 1px;
+  margin:5px;
+  height:400px
+}
+h2 {
+  TEXT-ALIGN:center;
+}
+div{
+  TEXT-ALIGN:center;
+}
+.authorName{
+  font-family:Georgia;
+  font-style:oblique;
+  font-weight:700;
+  TEXT-ALIGN:left;
+  font-size:20px;
+}
+#col{
+  border-style: solid;
+  TEXT-ALIGN:center;
+  border-width: 1px;
+  margin:5px;
+}
+#colImg{
+  text-align:center;
+  margin:5px;
+}
+#scrollArea
+{
+  TEXT-ALIGN:center;
+  overflow:scroll;
+  height:400px;
+}
+#followName{
+  font-family:Georgia;
+  font-style:oblique;
+  font-weight:700;
+  TEXT-ALIGN:center;
+  font-size:15px;
+}
+#link{
+  color:#000000 ;
+  font-size:25px;
+  font-style:italic;
+}
+.errorMsg{
+  color:red;
+  font-style:italic;
+}

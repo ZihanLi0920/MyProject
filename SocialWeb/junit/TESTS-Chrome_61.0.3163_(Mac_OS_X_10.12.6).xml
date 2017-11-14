@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 61.0.3163 (Mac OS X 10.12.6)" package="" timestamp="2017-10-29T02:13:35" id="0" hostname="ZihandeMacBook-Pro.local" tests="16" errors="0" failures="0" time="0.841">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"/>
+  </properties>
+  <testcase name="Validate actions  resource should be resource" time="0.006" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate actions "/>
+  <testcase name="Validate actions  resource should give me http error" time="0.117" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate actions "/>
+  <testcase name="Validate actions  resource should be Postable" time="0.001" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate actions "/>
+  <testcase name="Validate actions  should update error message" time="0.003" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate actions "/>
+  <testcase name="Validate actions  should update success message" time="0.002" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate actions "/>
+  <testcase name="Validate actions  should navigate" time="0.01" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate actions "/>
+  <testcase name="Validate Article actions should fetch articles " time="0" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Article actions"/>
+  <testcase name="Validate Article actions should update the search keyword " time="0.002" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Article actions"/>
+  <testcase name="Validate Authentication should log in a user" time="0.001" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Authentication"/>
+  <testcase name="Validate Authentication should not log in an invalid user" time="0.001" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Authentication"/>
+  <testcase name="Validate Authentication should log out a user" time="0" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Authentication"/>
+  <testcase name="Articles View should filter displayed articles by the search keyword" time="0.29" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Articles View"/>
+  <testcase name="Articles View should render articles" time="0.226" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Articles View"/>
+  <testcase name="Articles View should dispatch actions to create a new article" time="0.178" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Articles View"/>
+  <testcase name="Validate Profile actions should fetch the user's profile information " time="0.002" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Profile actions"/>
+  <testcase name="Validate Profile actions should update headline" time="0.002" classname="Chrome_61_0_3163_(Mac_OS_X_10_12_6).Validate Profile actions"/>
+  <system-out>
+    <![CDATA[Chrome 61.0.3163 (Mac OS X 10.12.6) WARN: 'Unmatched GET to https://webdev-dummy.herokuapp.com/users'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
