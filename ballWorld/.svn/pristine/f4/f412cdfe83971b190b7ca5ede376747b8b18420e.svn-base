@@ -1,0 +1,30 @@
+package model.strategy;
+
+import model.IUpdateStrategy;
+import model.balls.*;
+import util.Dispatcher;
+
+/**
+ * @author zihanli
+ * The strategy to make the ball move in a straight path
+ */
+public class StraightStrategy implements IUpdateStrategy {
+	/** (non-Javadoc)
+	 * @see model.IUpdateStrategy#updateState(model.balls.Ball, Dispatcher)
+	 * Do nothing so that the ball can move in straight path
+	 */
+	public void updateState(Ball ball, Dispatcher dispatcher) {
+
+	}
+
+	/** (non-Javadoc)
+	 * @see model.IUpdateStrategy#init(model.balls.Ball)
+	 * do nothing
+	 */
+	@Override
+	public void init(Ball context) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

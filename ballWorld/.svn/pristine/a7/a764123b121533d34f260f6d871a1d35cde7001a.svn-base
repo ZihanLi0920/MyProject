@@ -1,0 +1,32 @@
+package model.strategy;
+
+import model.IInteractStrategy;
+import model.balls.Ball;
+import util.Dispatcher;
+
+/**
+ * @author zihanli
+ * Composition design pattern
+ */
+public class MultiInteractStrategy implements IInteractStrategy {
+
+	private IInteractStrategy strategy1, strategy2;
+
+	MultiInteractStrategy(IInteractStrategy _strategy1, IInteractStrategy iInteractStrategy) {
+		strategy1 = _strategy1;
+		strategy2 = iInteractStrategy;
+	}
+
+	/** (non-Javadoc)
+	 * @see model.IInteractStrategy#interact(model.balls.Ball, model.balls.Ball, util.Dispatcher)
+	 * call the interact method of both strategy
+	 */
+	@Override
+	public void interact(Ball context, Ball target, Dispatcher disp) {
+		// TODO Auto-generated method stub
+		strategy1.interact(context, target, disp);
+		strategy2.interact(context, target, disp);
+
+	}
+
+}

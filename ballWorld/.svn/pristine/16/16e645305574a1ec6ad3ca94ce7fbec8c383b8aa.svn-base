@@ -1,0 +1,46 @@
+package model.strategy;
+
+import model.IUpdateStrategy;
+import model.balls.Ball;
+import util.Dispatcher;
+
+/**
+ * @author zihanli
+ * the class used to create strategy that can change its method pf updating
+ */
+public class SwitchStrategy implements IUpdateStrategy {
+
+	private IUpdateStrategy tempStrategy = new StraightStrategy();
+
+	/** (non-Javadoc)
+	 * @see model.IUpdateStrategy#updateState(model.balls.Ball, Dispatcher)
+	 * using temp strategy to update the ball
+	 */
+	@Override
+	public void updateState(Ball ball, Dispatcher dispatcher) {
+		// TODO Auto-generated method stub
+		tempStrategy.updateState(ball, null);
+
+	}
+
+	/**
+	 * @param newStrategy
+	 * set  tempStrategy to a new one
+	 */
+	public void setStrategy(IUpdateStrategy newStrategy) {
+		tempStrategy = newStrategy;
+		//init(context);
+	}
+
+	/** (non-Javadoc)
+	 * @see model.IUpdateStrategy#init(model.balls.Ball)
+	 * don't care now
+	 */
+	@Override
+	public void init(Ball context) {
+		// TODO Auto-generated method stub
+		//tempStrategy.init(context);
+
+	}
+
+}

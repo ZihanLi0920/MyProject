@@ -1,0 +1,23 @@
+package model;
+
+import model.balls.*;
+import util.Dispatcher;
+
+/**
+ * @author zihanli
+ * the interface which is used to change a ball's state
+ */
+public interface IUpdateStrategy {
+	/**
+	 * @param ball
+	 * it's a abstract method to update the state of a ball
+	 * @param dispatcher TODO
+	 */
+	public void updateState(Ball ball, Dispatcher dispatcher);
+
+	/**
+	 * @param context
+	 * set the ball's interact strategy
+	 */
+	public void init(Ball context);
+}
